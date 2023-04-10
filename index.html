@@ -16,7 +16,7 @@
             found = 0
             notFound = 0
             for (data in object){
-                if(data!={}){
+                if(Object.keys(data).length === 0 && data.constructor === Object){
                     found++
                 }
                 else{
