@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <p id="demo"></p>
+    </body>
+</html>
+<script>
+    demo = document.getElementById("demo")
+    demo.innerHTML = "Loading..."
+    let p = fetch("https://api.github.com/users")
+    p.then((response) => {    
+        demo.innerHTML = ""
+        return response.json() //josn method returns a promise which resolves with the result of parsing the body text as JSON, return data as object
+    }).then((value) => {
+        
+        object = [{},{a:"fd"},{b:"fd"}]
+            found = 0
+            notFound = 0
+            for (data in object){
+                if(data!={}){
+                    found++
+                }
+                else{
+                    notFound++
+                }
+            }
+            console.log("found - ",found)
+            console.log("Not found - ",notFound)
+            console.log(value) //json() returned value as object
+    })
+
+</script>
