@@ -41,7 +41,7 @@ async function anythingPost(bodyData){
 //     await delayRes
 //     console.timeEnd("Total Time")
 // }
-main()
+// main()
 
 //parallely using promis.all
 async function parllelPromise(postData) {
