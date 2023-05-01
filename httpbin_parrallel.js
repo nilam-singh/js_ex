@@ -32,34 +32,34 @@ async function anythingPost(bodyData){
 }
 
 //parallely using await 
-// console.time("Total Time")
-// async function main(){
-//     const getRes =  getUUID()
-//     const delayRes =  delay(delayTime)
-//     const anythingRes = anythingPost(await getRes)
-//     anythingRes.then((val)=> console.log(val.data))
-//     await delayRes
-//     console.timeEnd("Total Time")
-// }
-// main()
+console.time("Total Time")
+async function main(){
+    const getRes =  getUUID()
+    const delayRes =  delay(delayTime)
+    const anythingRes = anythingPost(await getRes)
+    anythingRes.then((val)=> console.log(val.data))
+    await delayRes
+    console.timeEnd("Total Time")
+}
+main()
 
 //parallely using promis.all
-async function parllelPromise(postData) {
-    const [delayRes, anythingPostRes] = await Promise.all([
-      delay(delayTime),
-      anythingPost(postData)
-    ]);
-    return [delayRes, anythingPostRes];
-}
-console.time("Total Time1")
-getUUID().then(
-    (res) => {
-        return parllelPromise(res)      
-    },
-    (err) => { throw new Error("Error While getting UUID : ",err)} 
-).then((resArr) => {
-    console.timeEnd("Total Time1")
-    console.log(resArr[1].data)
-}).catch(err => {
-    console.log(err)
-});
+// async function parllelPromise(postData) {
+//     const [delayRes, anythingPostRes] = await Promise.all([
+//       delay(delayTime),
+//       anythingPost(postData)
+//     ]);
+//     return [delayRes, anythingPostRes];
+// }
+// console.time("Total Time1")
+// getUUID().then(
+//     (res) => {
+//         return parllelPromise(res)      
+//     },
+//     (err) => { throw new Error("Error While getting UUID : ",err)} 
+// ).then((resArr) => {
+//     console.timeEnd("Total Time1")
+//     console.log(resArr[1].data)
+// }).catch(err => {
+//     console.log(err)
+// });
